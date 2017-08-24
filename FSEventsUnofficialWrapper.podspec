@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'FSEventsUnofficialWrapper'
-  s.version = '0.1.0'
+  s.version = '0.1.1'
   s.license = 'MIT'
   s.summary = 'This library provides mostly faithful wrapper around FSEvents feature tailored for Swift 3'
   s.homepage = 'https://github.com/eonil/fsevents-unofficial-wrapper'
