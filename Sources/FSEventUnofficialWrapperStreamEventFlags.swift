@@ -331,31 +331,33 @@ extension FSEventUnofficialWrapperStreamEventFlags: CustomStringConvertible, Cus
 //        ]
 //    }
     private static func getNameMapping() -> [FSEventUnofficialWrapperStreamEventFlags: String] {
-        return [
-//            .none: ".none",
-            .mustScanSubDirs: ".mustScanSubDirs",
-            .userDropped: ".userDropped",
-            .kernelDropped: ".kernelDropped",
-            .idsWrapped: ".idsWrapped",
-            .historyDone: ".historyDone",
-            .rootChanged: ".rootChanged",
-            .mount: ".mount",
-            .unmount: ".unmount",
-            .itemCreated: ".itemCreated",
-            .itemRemoved: ".itemRemoved",
-            .itemInodeMetaMod: ".itemInodeMetaMod",
-            .itemRenamed: ".itemRenamed",
-            .itemModified: ".itemModified",
-            .itemFinderInfoMod: ".itemFinderInfoMod",
-            .itemChangeOwner: ".itemChangeOwner",
-            .itemXattrMod: ".itemXattrMod",
-            .itemIsFile: ".itemIsFile",
-            .itemIsDir: ".itemIsDir",
-            .itemIsSymlink: ".itemIsSymlink",
-            .ownEvent: ".ownEvent",
-            .itemIsHardlink: ".itemIsHardlink",
-            .itemIsLastHardlink: ".itemIsLastHardlink",
-        ]
+        var result:[FSEventUnofficialWrapperStreamEventFlags: String] = [
+                .mustScanSubDirs: ".mustScanSubDirs",
+                .userDropped: ".userDropped",
+                .kernelDropped: ".kernelDropped",
+                .idsWrapped: ".idsWrapped",
+                .historyDone: ".historyDone",
+                .rootChanged: ".rootChanged",
+                .mount: ".mount",
+                .unmount: ".unmount",
+                .itemCreated: ".itemCreated",
+                .itemRemoved: ".itemRemoved",
+                .itemInodeMetaMod: ".itemInodeMetaMod",
+                .itemRenamed: ".itemRenamed",
+                .itemModified: ".itemModified",
+                .itemFinderInfoMod: ".itemFinderInfoMod",
+                .itemChangeOwner: ".itemChangeOwner",
+                .itemXattrMod: ".itemXattrMod",
+                .itemIsFile: ".itemIsFile",
+                .itemIsDir: ".itemIsDir",
+                .itemIsSymlink: ".itemIsSymlink",
+                .ownEvent: ".ownEvent"
+            ]
+        if #available(OSX 10.10, *) {
+            result[.itemIsHardlink] = ".itemIsHardlink"
+            result[.itemIsLastHardlink] = ".itemIsLastHardlink"
+        }
+        return result
     }
     public var description: String {
         return debugDescription
